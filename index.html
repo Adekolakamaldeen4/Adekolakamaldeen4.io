@@ -1,166 +1,307 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adekola Kamaldeen Temitayo</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Times new roman", sans-serif;
-            background: #f0f6ff;
-            color: #03396c;
-        }header {
-        background: #005bff;
-        color: white;
-        padding: 2rem;
-        text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adekola Kamaldeen Temitayo</title>
+<meta name="description" content="Portfolio of Adekola Kamaldeen Temitayo, Agricultural and Biosystems Engineering student at the University of Ilorin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#062b1c;
+  --green-900:#0a3d29;
+  --green-700:#0f6b45;
+  --green-500:#16a15f;
+  --green-300:#7fd8a8;
+  --mint:#e6f5ec;
+  --paper:#f3f8f5;
+  --ink:#10281d;
+  --muted:#4b6558;
+  --line:#d5e6dc;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Manrope","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green-300);outline-offset:3px;border-radius:6px}
 
-    header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-    }
+/* Navigation */
+nav{position:sticky;top:0;z-index:50;background:rgba(6,43,28,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(127,216,168,.18)}
+nav ul{list-style:none;margin:0 auto;padding:.9rem 1rem;display:flex;justify-content:center;gap:.4rem;max-width:900px}
+nav a{display:block;padding:.4rem 1rem;border-radius:999px;color:#cfeedd;text-decoration:none;font-weight:600;font-size:.95rem;transition:background .25s,color .25s}
+nav a:hover,nav a.active{background:var(--green-500);color:#fff}
 
-    .container {
-        max-width: 900px;
-        margin: 2rem auto;
-        padding: 1.5rem;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+/* Hero */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(ellipse at 80% 0%,rgba(22,161,95,.35),transparent 55%),
+  linear-gradient(160deg,var(--forest),var(--green-900) 70%);
+  color:#fff;padding:4.5rem 1.5rem 6rem}
+/* crop-row lines: a nod to precision agriculture */
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 38px,rgba(127,216,168,.07) 38px 40px);mask-image:linear-gradient(to bottom,#000,transparent 90%);-webkit-mask-image:linear-gradient(to bottom,#000,transparent 90%)}
+.hero-inner{position:relative;max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.4rem}
+.photo{width:210px;height:210px;border-radius:50%;padding:6px;background:conic-gradient(from 200deg,var(--green-300),var(--green-500),var(--green-700),var(--green-300));box-shadow:0 18px 45px rgba(0,0,0,.4);animation:rise .9s ease both}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:5px solid var(--forest);display:block}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,7vw,3.8rem);line-height:1.08;margin:0;letter-spacing:-.01em;animation:rise .9s .1s ease both}
+.role{margin:0;color:var(--green-300);font-size:1.1rem;font-weight:600;animation:rise .9s .2s ease both}
+.school{margin:0;color:#b6d9c6;max-width:34rem;animation:rise .9s .25s ease both}
+.cta{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-top:.6rem;animation:rise .9s .3s ease both}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;border-radius:999px;font-weight:700;text-decoration:none;font-size:.98rem;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-primary{background:var(--green-500);color:#fff;box-shadow:0 8px 22px rgba(22,161,95,.4)}
+.btn-primary:hover{background:#1bb86c;transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid rgba(127,216,168,.6);color:#e6f5ec}
+.btn-ghost:hover{background:rgba(127,216,168,.14);transform:translateY(-2px)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-    .info {
-        line-height: 1.7;
-    }
+/* Sections */
+main{max-width:900px;margin:-3rem auto 0;padding:0 1.2rem;position:relative}
+section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:2rem clamp(1.3rem,4vw,2.5rem);margin-bottom:1.6rem;box-shadow:0 10px 30px rgba(10,61,41,.07)}
+h2{font-family:var(--display);font-weight:600;font-size:1.7rem;color:var(--green-900);margin:0 0 1.1rem;display:flex;align-items:center;gap:.7rem}
+h2::before{content:"";width:6px;height:1.5rem;border-radius:3px;background:linear-gradient(var(--green-500),var(--green-700))}
+h3{font-size:1rem;margin:1.4rem 0 .6rem;color:var(--green-700);font-weight:700}
+p{margin:0}
+.facts{display:grid;gap:1.4rem}
+.fact-label{font-size:.9rem;color:var(--green-700);font-weight:700;margin-bottom:.15rem}
+.about-text{color:var(--muted);font-size:1.05rem;max-width:62ch}
+.dept{display:inline-block;background:var(--mint);color:var(--green-900);font-weight:700;padding:.45rem 1rem;border-radius:10px;border-left:4px solid var(--green-500)}
 
-    .info h2 {
-        color: #005bff;
-        margin-bottom: 0.5rem;
-    }
+/* Skills */
+.badges{display:flex;flex-wrap:wrap;gap:.55rem}
+.badge{padding:.5rem 1rem;border-radius:999px;background:var(--mint);border:1px solid #bfe3cd;color:var(--green-900);font-size:.92rem;font-weight:600;transition:background .2s,color .2s,transform .2s}
+.badge:hover{background:var(--green-700);color:#fff;transform:translateY(-2px)}
 
-    footer {
-        text-align: center;
-        padding: 1rem;
-        margin-top: 2rem;
-        background: #cce0ff;
-        color: #03396c;
-    }
+/* Projects */
+.project{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.project svg{flex:none;width:40px;height:40px;padding:9px;border-radius:10px;background:var(--green-700);color:#fff}
+.project strong{font-size:1.05rem}
+.dl{margin-top:1.4rem}
+
+/* Contact */
+.email{display:inline-flex;align-items:center;gap:.7rem;font-weight:700;color:var(--green-900);text-decoration:none;word-break:break-all}
+.email svg{flex:none;width:22px;height:22px;color:var(--green-500)}
+.email:hover{color:var(--green-500)}
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.8rem;margin-top:1.3rem}
+.social{display:flex;align-items:center;gap:.8rem;padding:.8rem 1rem;border-radius:14px;border:1px solid var(--line);background:var(--paper);text-decoration:none;font-weight:700;color:var(--green-900);transition:transform .2s,background .2s,color .2s,border-color .2s}
+.social svg{width:34px;height:34px;padding:7px;border-radius:10px;background:var(--green-700);color:#fff;flex:none;transition:background .2s}
+.social:hover{background:var(--green-700);color:#fff;border-color:var(--green-700);transform:translateY(-3px)}
+.social:hover svg{background:var(--green-500)}
+
+/* Gallery */
+.sub{font-family:var(--display);font-size:1.25rem;color:var(--green-900);margin:2rem 0 .3rem}
+.hint{color:var(--muted);font-size:.95rem;margin-bottom:1rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem}
+.gallery figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--paper);cursor:zoom-in;transition:transform .2s,box-shadow .2s}
+.gallery figure:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(10,61,41,.15)}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.gallery figcaption,.vids figcaption{padding:.55rem .75rem;font-size:.85rem;font-weight:600;color:var(--green-900)}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.vids figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--paper)}
+.vids video{width:100%;aspect-ratio:16/9;background:#000;display:block}
+#lightbox{border:0;padding:0;background:transparent;max-width:94vw;max-height:92vh}
+#lightbox::backdrop{background:rgba(6,43,28,.88)}
+#lightbox img{max-width:94vw;max-height:84vh;border-radius:12px;display:block;margin:auto}
+#lightbox p{color:#e6f5ec;text-align:center;margin:.6rem 0 0;font-weight:600}
+
+footer{background:var(--forest);color:#b6d9c6;text-align:center;padding:1.6rem 1rem;margin-top:3rem;font-size:.95rem;border-top:3px solid var(--green-500)}
+
+@media (max-width:520px){
+  nav a{padding:.4rem .7rem;font-size:.9rem}
+  .photo{width:180px;height:180px}
+  .hero{padding-top:3rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
-
 </head>
 <body>
-    <nav style="background:#005bff; padding:1rem; display:flex; justify-content:center; gap:30px; position:sticky; top:0; z-index:100;">
-        <a href="" style="color:white; text-decoration:none; font-weight:bold;">About</a>
-        <a href="" style="color:white; text-decoration:none; font-weight:bold;">Skills</a>
-        <a href="" style="color:white; text-decoration:none; font-weight:bold;">Projects</a>
-        <a href="" style="color:white; text-decoration:none; font-weight:bold;">Contact</a>
-    </nav>
-    <header>
-        <h1>Adekola Kamaldeen Temitayo</h1>
-    </header><div style="text-align:center; margin-top:20px;">
-    <img src="Kamal19.jpg" alt="Profile Photo" style="width:200px; height:200px; object-fit:cover; border-radius:50%; border:4px solid #005bff; box-shadow:0 4px 12px rgba(0,0,0,0.2); transition:transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.06)'; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';" />
-</div>
 
-<div class="container">
-    <section class="info" id="about">
-        <h2>Department</h2>
-        <p>Agricultural and Biosystems Engineering</p>
-    </section>
+<nav aria-label="Main">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <section class="info">
-        <h2>About Me</h2>
-        <p>Kamaldeen Adekola, is a proud student of the better by far university, the University of Ilorin. He is passionate about Precision Agriculture, industrialization and the Energy industry. He is an advocate of continuous learning and growth.</p>
-    </section>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="photo"><img src="Kamal19.jpg" alt="Profile photo of Adekola Kamaldeen Temitayo"></div>
+    <h1>Adekola Kamaldeen Temitayo</h1>
+    <p class="role">Agricultural and Biosystems Engineering</p>
+    <p class="school">University of Ilorin, Permanent Site</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#contact">Contact me</a>
+      <a class="btn btn-ghost" href="#about">About me</a>
+    </div>
+  </div>
+</header>
 
-    <section class="info">
-        <h2>Address</h2>
+<main>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="facts">
+      <p class="about-text">Kamaldeen Adekola, is a proud student of the better by far university, the University of Ilorin. He is passionate about Precision Agriculture, industrialization and the Energy industry. He is an advocate of continuous learning and growth.</p>
+      <div>
+        <div class="fact-label">Department</div>
+        <span class="dept">Agricultural and Biosystems Engineering</span>
+      </div>
+      <div>
+        <div class="fact-label">Address</div>
         <p>University of Ilorin, Permanent Site</p>
-    </section>
-</div>
+      </div>
+    </div>
+  </section>
 
-<style>
-    .skills, .contact {
-        margin-top: 2rem;
-    }
-    .skills h2, .contact h2 {
-        color: #005bff;
-    }
-    .skill-badge {
-        display: inline-block;
-        padding: 8px 14px;
-        background: #e6f0ff;
-        border-radius: 20px;
-        margin: 5px;
-        font-size: 0.9rem;
-        border: 1px solid #b8d4ff;
-    }
-    .card {
-        background: #ffffff;
-        padding: 1.5rem;
-        border-radius: 15px;
-        margin-top: 2rem;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-    .card:hover {
-        transform: translateY(-5px);
-    }
-    .socials a {
-        margin-right: 15px;
-        text-decoration: none;
-        color: #005bff;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-    .socials a:hover {
-        text-decoration: underline;
-    }
-</style>
+  <section id="skills">
+    <h2>Skills</h2>
+    <h3>Engineering and workshop</h3>
+    <div class="badges">
+      <span class="badge">Computer Aided designs with Solidworks</span>
+      <span class="badge">Tractor Driving</span>
+      <span class="badge">Metal cutting and Welding</span>
+    </div>
+    <h3>Software and digital</h3>
+    <div class="badges">
+      <span class="badge">HTML</span>
+      <span class="badge">CSS</span>
+      <span class="badge">Microsoft office word</span>
+      <span class="badge">Microsoft office excel</span>
+      <span class="badge">Microsoft powerpoint</span>
+      <span class="badge">Generative AI</span>
+    </div>
+    <h3>Professional</h3>
+    <div class="badges">
+      <span class="badge">Problem Solving</span>
+      <span class="badge">Teamwork</span>
+      <span class="badge">Critical thinking</span>
+      <span class="badge">Interpersonal Communication</span>
+    </div>
+  </section>
 
-<div class="container card">
-    <section class="skills" id="skills">
-        <h2>Skills</h2>
-        <span class="skill-badge">HTML</span>
-        <span class="skill-badge">CSS</span>
-        <span class="skill-badge">Microsoft office word</span>
-        <span class="skill-badge">Microsoft office excel</span>
-        <span class="skill-badge">Microsoft powerpoint</span>
-        <span class="skill-badge">Computer Aided designs with Solidworks</span>
-        <span class="skill-badge">Tractor Driving</span>
-        <span class="skill-badge">Metal cutting and Welding</span>
-        <span class="skill-badge">Geneartive AI</span>
-        <span class="skill-badge">Problem Solving</span>
-        <span class="skill-badge">Teamwork</span>
-        <span class="skill-badge">Critical thinking</span>
-        <span class="skill-badge">Interpersonal Communication</span>
-    </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+      <strong>Personal Portfolio Webpage</strong>
+    </div>
 
-    <section class="contact" id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <strong>Adekolakamaldeen4@gmail.com</strong></p>
+    <h3 class="sub">SolidWorks Projects: Pictures</h3>
+    <p class="hint">Tap a picture to enlarge it.</p>
+    <div class="gallery" id="gallery"></div>
 
-        <div class="socials">
-            <a href="https://ng.linkedin.com/in/kamaldeen-adekola">LinkedIn</a>
-            <a href="https://www.instagram.com/adekolakamaldeen001/">Instagram</a>
-            <a href="https://wa.me/08123902149">WhatsApp</a>
-            <a href="https://app.varsityscape.com/r/adekolakamaldeen001">VarsityScape</a>
-        </div>
-    </section>
-</div>
+    <h3 class="sub">SolidWorks Projects: Videos</h3>
+    <div class="vids" id="vids"></div>
 
-<div class="container card" id="projects">
-    <h2 style="color:#005bff;">Projects</h2>
-    <ul>
-        <li>Personal Portfolio Webpage</li>
-    </ul>
+    <a class="btn btn-primary dl" href="Kamaldeen-Adekola-CV.pdf" download>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+      Download CV
+    </a>
+  </section>
 
-    <a href="" download style="display:inline-block; margin-top:1rem; background:#005bff; color:white; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:bold;">Download CV</a>
-</div>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <a class="email" href="mailto:Adekolakamaldeen4@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      Adekolakamaldeen4@gmail.com
+    </a>
 
-<footer style="text-align:center; padding:1rem; margin-top:2rem; background:#cce0ff; color:#03396c;">
-    &copy; 2026 Adekola Kamaldeen Temitayo
-</footer>
+    <div class="socials">
+      <a class="social" href="https://ng.linkedin.com/in/kamaldeen-adekola" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v7M7 7v.01M11 17v-7M11 13a3 3 0 0 1 6 0v4"/></svg>
+        LinkedIn
+      </a>
+      <a class="social" href="https://www.instagram.com/adekolakamaldeen001/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".6" fill="currentColor"/></svg>
+        Instagram
+      </a>
+      <a class="social" href="https://wa.me/2348123902149" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1.2-1.6-2-1-.9.8a4 4 0 0 1-2.3-2.3l.8-.9-1-2L9 8.5z" fill="currentColor" stroke="none"/></svg>
+        WhatsApp
+      </a>
+      <a class="social" href="https://app.varsityscape.com/r/adekolakamaldeen001" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l8 13 8-13"/><path d="M12 4.5c1-1.8 3-2 4.2-1.6-.2 1.6-1.6 3-4.2 3.1z" fill="currentColor" stroke="none"/></svg>
+        VarsityScape
+      </a>
+    </div>
+  </section>
+</main>
 
+<dialog id="lightbox"><img alt=""></dialog>
+
+<footer>&copy; 2026 Adekola Kamaldeen Temitayo</footer>
+
+<script>
+  // Highlight the nav link of the section currently in view
+  const links = document.querySelectorAll('nav a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section').forEach(s => io.observe(s));
+
+  // ===== Project media: to add more, add a line to these lists and upload the file =====
+  const pictures = [
+    ["sketch-2.jpg","Sketch 2"],
+    ["box-design.jpg","Box first design"],
+    ["exercise1-a.jpg","Exercise 1 (a)"],
+    ["exercise1-b.jpg","Exercise 1 (b)"],
+    ["swug-class.jpg","Lagos SWUG class work"],
+    ["niaesb-assignment2.jpg","NIAESB Tech Training Assignment 2"],
+    ["niaesb-assignment2-latest.jpg","NIAESB Assignment 2 (latest)"],
+    ["mrprepmaster-jul23-a.jpg","MrPrepMaster tutorial (a)"],
+    ["mrprepmaster-jul23-b.jpg","MrPrepMaster tutorial (b)"],
+    ["tutorial-jul24.jpg","Tutorial, 24 July"],
+    ["tutorial-jul26.jpg","Tutorial, 26 July"],
+    ["tutorial-jul27.jpg","Tutorial, 27 July"],
+    ["tutorial-jul28-a.jpg","Tutorial, 28 July (a)"],
+    ["tutorial-jul28-b.jpg","Tutorial, 28 July (b)"],
+    ["tutorial-jul31.jpg","Tutorial, 31 July"],
+    ["tutorial-aug08.jpg","Tutorial, 8 August"],
+    ["tutorial-aug09.jpg","Tutorial, 9 August"]
+  ];
+  const videos = [
+    ["exercise2.mp4","Exercise 2"],
+    ["swug-class.mp4","Lagos SWUG class work"],
+    ["niaesb-assignment2.mp4","NIAESB Tech Training Assignment 2"],
+    ["part12.mp4","Part 12"],
+    ["tutorial-jul22.mp4","Tutorial, 22 July"],
+    ["tutorial-jul23-a.mp4","Tutorial, 23 July (a)"],
+    ["tutorial-jul23-b.mp4","Tutorial, 23 July (b)"],
+    ["tutorial-jul24.mp4","Tutorial, 24 July"],
+    ["tutorial-jul24-green.mp4","Tutorial, 24 July (green)"],
+    ["tutorial-jul26.mp4","Tutorial, 26 July"],
+    ["tutorial-jul27.mp4","Tutorial, 27 July"],
+    ["tutorial-jul28.mp4","Tutorial, 28 July"],
+    ["tutorial-jul31.mp4","Tutorial, 31 July"],
+    ["tutorial-jul31-wide.mp4","Tutorial, 31 July (widescreen)"],
+    ["tutorial-aug01.mp4","Tutorial, 1 August"],
+    ["tutorial-aug08.mp4","Tutorial, 8 August"],
+    ["tutorial-aug10.mp4","Tutorial, 10 August"]
+  ];
+
+  const gallery = document.getElementById('gallery');
+  const vids = document.getElementById('vids');
+  const box = document.getElementById('lightbox');
+  const boxImg = box.querySelector('img');
+
+  pictures.forEach(([file, title]) => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<img src="projects/images/${file}" alt="${title}" loading="lazy">`;
+    fig.addEventListener('click', () => { boxImg.src = `projects/images/${file}`; boxImg.alt = title; box.showModal(); });
+    gallery.appendChild(fig);
+  });
+  videos.forEach(([file, title]) => {
+    const fig = document.createElement('figure');
+    fig.innerHTML = `<video controls preload="metadata" playsinline aria-label="${title}" src="projects/videos/${file}#t=0.5"></video>`;
+    vids.appendChild(fig);
+  });
+  box.addEventListener('click', () => box.close());
+</script>
 </body>
 </html>

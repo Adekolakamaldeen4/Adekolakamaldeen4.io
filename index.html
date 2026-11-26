@@ -316,13 +316,18 @@ footer{background:var(--forest);color:#b6d9c6;text-align:center;padding:1.6rem 1
     withFallback(img, 'projects/images', file, IMG_EXT, '');
     fig.addEventListener('click', () => { boxImg.src = img.dataset.url; boxImg.alt = title; box.showModal(); });
   });
+  const vObs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { vObs.unobserve(e.target); e.target._start(); }
+  }), { rootMargin: '400px 0px' });
   videos.forEach(([file, title]) => {
     const fig = document.createElement('figure');
     const v = document.createElement('video');
     v.controls = true; v.preload = 'metadata'; v.playsInline = true; v.setAttribute('aria-label', title);
     fig.appendChild(v);
     vids.appendChild(fig);
-    withFallback(v, 'Projects/Videos', file, VID_EXT, '#t=0.5');
+    // Load each video only when it is near the screen, so the phone isn't fetching 17 at once
+    vObs.observe(fig);
+    fig._start = () => withFallback(v, 'Projects/Videos', file, VID_EXT, '#t=1');
   });
   box.addEventListener('click', () => box.close());
 </script>

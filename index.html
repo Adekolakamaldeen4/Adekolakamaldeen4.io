@@ -290,16 +290,39 @@ footer{background:var(--forest);color:#b6d9c6;text-align:center;padding:1.6rem 1
   const box = document.getElementById('lightbox');
   const boxImg = box.querySelector('img');
 
+  // Tries other spellings of the extension (jpg/JPG/jpeg, mp4/MP4...) because GitHub/Vercel are case-sensitive.
+  // If a file is truly missing, its tile is hidden instead of showing a broken box.
+  const IMG_EXT = ['jpg','JPG','jpeg','JPEG','png','PNG','webp'];
+  const VID_EXT = ['mp4','MP4','mov','MOV','webm','m4v'];
+  function withFallback(el, folder, file, exts, suffix, onGood) {
+    const base = file.replace(/\.[^.]+$/, '');
+    let i = 0;
+    const next = () => {
+      if (i >= exts.length) { el.closest('figure').style.display = 'none'; return; }
+      const url = `${folder}/${base}.${exts[i++]}`;
+      el.dataset.url = url;
+      el.src = url + suffix;
+    };
+    el.addEventListener('error', next);
+    next();
+  }
+
   pictures.forEach(([file, title]) => {
     const fig = document.createElement('figure');
-    fig.innerHTML = `<img src="projects/images/${file}" alt="${title}" loading="lazy">`;
-    fig.addEventListener('click', () => { boxImg.src = `projects/images/${file}`; boxImg.alt = title; box.showModal(); });
+    const img = document.createElement('img');
+    img.alt = title; img.loading = 'lazy';
+    fig.appendChild(img);
     gallery.appendChild(fig);
+    withFallback(img, 'projects/images', file, IMG_EXT, '');
+    fig.addEventListener('click', () => { boxImg.src = img.dataset.url; boxImg.alt = title; box.showModal(); });
   });
   videos.forEach(([file, title]) => {
     const fig = document.createElement('figure');
-    fig.innerHTML = `<video controls preload="metadata" playsinline aria-label="${title}" src="projects/videos/${file}#t=0.5"></video>`;
+    const v = document.createElement('video');
+    v.controls = true; v.preload = 'metadata'; v.playsInline = true; v.setAttribute('aria-label', title);
+    fig.appendChild(v);
     vids.appendChild(fig);
+    withFallback(v, 'projects/videos', file, VID_EXT, '#t=0.5');
   });
   box.addEventListener('click', () => box.close());
 </script>

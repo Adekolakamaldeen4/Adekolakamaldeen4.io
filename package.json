@@ -1,0 +1,23 @@
+{
+  "name": "kamaldeen-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Adekola Kamaldeen Temitayo - Agricultural and Biosystems Engineering student",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adekolakamaldeen4/Adekolakamaldeen4.io.git"
+  },
+  "keywords": ["portfolio", "agricultural-engineering", "solidworks"],
+  "author": "Adekola Kamaldeen Temitayo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adekolakamaldeen4/Adekolakamaldeen4.io/issues"
+  },
+  "homepage": "https://github.com/Adekolakamaldeen4/Adekolakamaldeen4.io#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
